@@ -118,7 +118,7 @@ if st.button("🚀 Predict", use_container_width=True):
     """, unsafe_allow_html=True)
     
     # ---------- Score Analysis ----------
-    st.markdown('<div class="card"><h3>AI Suggestion</h3></div>', unsafe_allow_html=True)
+    st.markdown('<div class="card"><h3>📈Score Analysis</h3></div>', unsafe_allow_html=True)
 
     # คำนวณ score
     scores = np.array([
@@ -134,7 +134,6 @@ if st.button("🚀 Predict", use_container_width=True):
     avg_score = scores.mean()
 
     # แสดงแบบบรรทัดเดียว
-    st.markdown("### 📈 Score Analysis")
     st.markdown(f"📊 Total Score: {total_score}")
     st.markdown(f"📊 Average Score: {avg_score:.2f}")
 
@@ -153,7 +152,7 @@ if st.button("🚀 Predict", use_container_width=True):
     st.markdown('</div>', unsafe_allow_html=True)
     
     # ---------- Personalized Suggestions ----------
-    st.markdown('<div class="card"><h3>Personalized Suggestions</h3></div>', unsafe_allow_html=True)
+    st.markdown('<div class="card"><h3>🙍‍♂️Personalized Suggestions</h3></div>', unsafe_allow_html=True)
     suggestions = {
         "unacc":["ลดราคาซื้อหรือค่าบำรุงรักษา","เพิ่มความปลอดภัยของรถ","ตรวจสอบจำนวนผู้โดยสารและประตู"],
         "acc":["ปรับขนาดกระโปรงให้เหมาะสม","ตรวจสอบความปลอดภัยเพิ่มเติม","ปรับราคาซื้อ/ค่าบำรุงรักษาเล็กน้อย"],
@@ -164,7 +163,7 @@ if st.button("🚀 Predict", use_container_width=True):
         st.markdown(f"- {s}")
     
     # ---------- AI Suggestion ----------
-    st.markdown('<div class="card"><h3>AI Suggestion</h3></div>', unsafe_allow_html=True)
+    st.markdown('<div class="card"><h3>🤖AI Suggestion</h3></div>', unsafe_allow_html=True)
     ai_texts = {
         "unacc":["ลองปรับ input หลายแบบเพื่อตรวจสอบรถที่เหมาะสมที่สุด","ใช้ model แนะนำการปรับปรุงรถ"],
         "acc":["คุณสามารถปรับค่าบางอย่างเพื่อเพิ่มคะแนน","AI แนะนำให้ลองเปรียบเทียบหลาย configuration"],
@@ -177,8 +176,7 @@ if st.button("🚀 Predict", use_container_width=True):
 # ---------- About Project ----------
 st.divider()
 
-st.markdown('<div class="card"><h3>AI Suggestion</h3></div>', unsafe_allow_html=True)
-st.markdown("## 📘 About Project")
+st.markdown('<div class="card"><h3>📘 About Project</h3></div>', unsafe_allow_html=True)
 
 st.markdown("""
 - 🚗 Features: Buying price, Maintenance, Doors, Persons, Luggage Boot, Safety  
