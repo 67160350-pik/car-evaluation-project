@@ -1,7 +1,5 @@
 streamlit
 joblib
-scikit-learn==1.6.1
+scikit-learn
 numpy
 pandas
-matplotlib
-altair<5
