@@ -140,13 +140,15 @@ if st.button("🚀 Predict", use_container_width=True):
     )
 
     # กราฟแท่ง (อยู่ตรงนี้เลย ไม่แยก)
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(4,3))
     ax.bar(range(len(scores)), scores)
+
     ax.set_xticks(range(len(scores)))
     ax.set_ylim(0, 100)
 
-    st.pyplot(fig)
+    plt.tight_layout()
 
+    st.pyplot(fig, use_container_width=False)
     st.markdown('</div>', unsafe_allow_html=True)
     
     # ---------- Personalized Suggestions ----------
@@ -170,26 +172,6 @@ if st.button("🚀 Predict", use_container_width=True):
     }
     for t in ai_texts[pred_class]:
         st.markdown(f"- {t}")
-    
-    # ---------- Graphs ----------
-    st.markdown('<div class="card"><h3>Graphs</h3></div>', unsafe_allow_html=True)
-    
-    # Distribution of input features
-    input_df = pd.DataFrame([{
-        "buying": buying, "maint": maint, "doors": doors,
-        "persons": persons, "lug_boot": lug_boot, "safety": safety
-    }])
-    for col in input_df.columns:
-        fig, ax = plt.subplots()
-        sns.countplot(x=col, data=df, palette="Set2", order=df[col].unique(), ax=ax)
-        plt.title(f"Distribution of {col}")
-        st.pyplot(fig)
-    
-    # Class distribution
-    fig2, ax2 = plt.subplots()
-    sns.countplot(x="class", data=df, palette="Set1", order=df["class"].unique(), ax=ax2)
-    plt.title("Class Distribution")
-    st.pyplot(fig2)
 
 # ---------- About Project ----------
 st.divider()
