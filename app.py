@@ -117,7 +117,7 @@ if st.button("🚀 Predict", use_container_width=True):
     </div>
     """, unsafe_allow_html=True)
     
-    # ---------- Score Analysis (แบบที่คุณต้องการ) ----------
+    # ---------- Score Analysis ----------
     st.markdown('<div class="card">', unsafe_allow_html=True)
 
     # คำนวณ score
@@ -134,14 +134,21 @@ if st.button("🚀 Predict", use_container_width=True):
     avg_score = scores.mean()
 
     # แสดงแบบบรรทัดเดียว
-    st.markdown(
-        f"## 📈 Score Analysis &nbsp;&nbsp; 📊 Total Score: {total_score} &nbsp;&nbsp; 📊 Average Score: {avg_score:.2f}",
-        unsafe_allow_html=True
-    )
+    st.markdown("### 📈 Score Analysis")
+    st.markdown(f"📊 Total Score: {total_score}")
+    st.markdown(f"📊 Average Score: {avg_score:.2f}")
 
-    # กราฟแท่ง (อยู่ตรงนี้เลย ไม่แยก)
+    # กราฟแท่ง
+    fig, ax = plt.subplots(figsize=(3.5,2.5))
+    labels = ["buying", "maint", "doors", "persons", "lug_boot", "safety"]
+
     fig, ax = plt.subplots(figsize=(4,3))
-    ax.bar(range(len(scores)), scores)
+    ax.bar(labels, scores)
+
+    ax.set_ylim(0, 100)
+
+    plt.tight_layout()
+    st.pyplot(fig, use_container_width=False)
 
     ax.set_xticks(range(len(scores)))
     ax.set_ylim(0, 100)
