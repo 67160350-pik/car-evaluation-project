@@ -118,7 +118,7 @@ if st.button("🚀 Predict", use_container_width=True):
     """, unsafe_allow_html=True)
     
     # ---------- Score Analysis ----------
-    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div class="card"><h3>AI Suggestion</h3></div>', unsafe_allow_html=True)
 
     # คำนวณ score
     scores = np.array([
@@ -144,18 +144,12 @@ if st.button("🚀 Predict", use_container_width=True):
 
     fig, ax = plt.subplots(figsize=(4,3))
     ax.bar(labels, scores)
-
     ax.set_ylim(0, 100)
-
-    plt.tight_layout()
-    st.pyplot(fig, use_container_width=False)
-
     ax.set_xticks(range(len(scores)))
-    ax.set_ylim(0, 100)
-
+    
     plt.tight_layout()
-
     st.pyplot(fig, use_container_width=False)
+
     st.markdown('</div>', unsafe_allow_html=True)
     
     # ---------- Personalized Suggestions ----------
@@ -183,7 +177,7 @@ if st.button("🚀 Predict", use_container_width=True):
 # ---------- About Project ----------
 st.divider()
 
-st.markdown('<div class="card">', unsafe_allow_html=True)
+st.markdown('<div class="card"><h3>AI Suggestion</h3></div>', unsafe_allow_html=True)
 st.markdown("## 📘 About Project")
 
 st.markdown("""
